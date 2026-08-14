@@ -1,8 +1,9 @@
+const currentCampaign = campaigns.specialEP;
+
 
 function renderReleaseBox(campaign) {
 
     const box = document.getElementById("release-box");
-  const currentCampaign = campaigns.specialEP;
 
     const target = new Date(campaign.startTime);
     const now = new Date();
