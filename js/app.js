@@ -61,3 +61,6 @@ function renderReleaseBox(campaign) {
         `;
     }
 }
+
+
+renderReleaseBox(currentCampaign);
