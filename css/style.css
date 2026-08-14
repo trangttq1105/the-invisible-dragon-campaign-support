@@ -1,88 +1,321 @@
+/* ========================================
+   GLOBAL
+======================================== */
+
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    padding: 20px;
-    font-family: Arial, sans-serif;
+    padding: 30px 20px 60px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     background: #ffffff;
     color: #222222;
 }
 
-.tool-header {
+
+/* ========================================
+   HEADER
+======================================== */
+
+header {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 28px;
 }
 
-.tool-header h1 {
+header h1 {
     margin: 0;
+
     font-size: 20px;
     font-weight: 700;
 }
 
-.tool-header h2 {
-    margin: 4px 0;
+header h2 {
+    margin: 3px 0 6px;
+
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
 }
 
-.tool-header p {
-    margin: 4px 0 0;
+header p {
+    margin: 0;
+
     font-size: 11px;
     font-style: italic;
 }
 
-section {
-    max-width: 800px;
-    margin: 0 auto 20px;
-    padding: 20px;
-    border: 1px solid #FFA500;
-    border-radius: 12px;
-    background: #fff;
-}
 
-button {
-    border: none;
-    background: #FFA500;
-    color: #ffffff;
-    padding: 12px 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 15px;
-}
+/* ========================================
+   MAIN CONTAINER
+======================================== */
 
-button:hover {
-    opacity: 0.85;
-}
-
-a {
-    text-decoration: none;
-}
-
-.small-note {
-    font-size: 12px;
-    font-style: italic;
-}
-
-.tracking-table {
+main {
     width: 100%;
-    border-collapse: collapse;
+    max-width: 800px;
+
+    margin: 0 auto;
 }
 
-.tracking-table th,
-.tracking-table td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+
+/* ========================================
+   GENERAL BOX
+======================================== */
+
+.tool-box {
+    width: 100%;
+
+    margin-bottom: 18px;
+    padding: 24px 26px;
+
+    border: 1.5px solid #FFA500;
+    border-radius: 14px;
+
+    background: #ffffff;
+}
+
+
+/* ========================================
+   BOX 1
+======================================== */
+
+#release-box {
     text-align: center;
 }
 
+#release-box h3 {
+    margin: 0 0 12px;
+
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+#release-box p {
+    margin: 7px 0;
+
+    font-size: 15px;
+}
+
+.small-note {
+    font-size: 12px !important;
+    font-style: italic;
+}
+
+
+/* ========================================
+   BOX 2
+======================================== */
+
+#countdown-box {
+    text-align: center;
+}
+
+#countdown-box h3 {
+    margin: 0 0 12px;
+
+    font-size: 18px;
+}
+
+.countdown {
+    font-size: 20px;
+    font-weight: 600;
+
+    line-height: 1.5;
+}
+
+.thank-you {
+    margin-top: 18px;
+
+    font-size: 14px;
+    font-style: italic;
+}
+
+
+/* ========================================
+   BOX 3
+======================================== */
+
+.action-columns {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 22px;
+}
+
+.action-column {
+    min-width: 0;
+}
+
+.action-column h3 {
+    margin: 0 0 14px;
+
+    padding-bottom: 10px;
+
+    font-size: 17px;
+
+    border-bottom: 1px solid #FFA500;
+}
+
+
+/* ========================================
+   ACTION BUTTONS
+======================================== */
+
+.action-button {
+    display: flex;
+
+    flex-direction: column;
+
+    width: 100%;
+
+    margin-bottom: 10px;
+    padding: 12px 14px;
+
+    border: 1px solid #FFA500;
+    border-radius: 9px;
+
+    background: #fffaf2;
+
+    color: #222222;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        transform 0.15s ease;
+}
+
+.action-button:hover {
+    background: #fff0d0;
+
+    transform: translateY(-1px);
+}
+
+.button-title {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.button-note {
+    margin-top: 4px;
+
+    font-size: 11px;
+    font-style: italic;
+
+    opacity: 0.75;
+}
+
+
+/* ========================================
+   HASHTAG
+======================================== */
+
+.hashtag-box {
+    width: 100%;
+
+    margin-bottom: 10px;
+    padding: 12px 14px;
+
+    border: 1px solid #FFA500;
+    border-radius: 9px;
+
+    background: #fffaf2;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* ========================================
+   TRACKING DASHBOARD
+======================================== */
+
+#tracking-box h3 {
+    margin: 0 0 5px;
+
+    font-size: 17px;
+}
+
+#tracking-box h4 {
+    margin: 0 0 16px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #666666;
+}
+
+#tracking-box p {
+    margin: 8px 0;
+}
+
+#tracking-box a {
+    color: #222222;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+#tracking-box a:hover {
+    text-decoration: underline;
+}
+
+.tracking-row {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 10px;
+    padding: 11px 14px;
+
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+
+    background: #fafafa;
+}
+
+.tracking-row span {
+    font-size: 14px;
+}
+
+.tracking-row strong {
+    font-size: 16px;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
 @media (max-width: 600px) {
+
     body {
-        padding: 12px;
+        padding: 20px 12px 40px;
     }
 
-    section {
-        padding: 15px;
+    .tool-box {
+        padding: 20px 16px;
+    }
+
+    .action-columns {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    #release-box h3 {
+        font-size: 17px;
+    }
+
+    .countdown {
+        font-size: 17px;
     }
 }
