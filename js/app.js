@@ -1,6 +1,10 @@
 const currentCampaign = campaigns.specialEP;
 
 
+// ========================================
+// BOX 1 — RELEASE / TRENDING START TIME
+// ========================================
+
 function renderReleaseBox(campaign) {
 
     const box = document.getElementById("release-box");
@@ -63,6 +67,10 @@ function renderReleaseBox(campaign) {
 }
 
 
+// ========================================
+// LOCAL TIME
+// ========================================
+
 function renderLocalTime(target) {
 
     const localTime = target.toLocaleString(
@@ -73,12 +81,18 @@ function renderLocalTime(target) {
         }
     );
 
-    document.getElementById("local-time")
-        .textContent = localTime;
+    const localTimeElement =
+        document.getElementById("local-time");
+
+    if (localTimeElement) {
+        localTimeElement.textContent = localTime;
+    }
 }
 
 
-renderReleaseBox(currentCampaign);
+// ========================================
+// BOX 2 — COUNTDOWN + 24 HOURS TRACKING
+// ========================================
 
 function renderCountdown(campaign) {
 
@@ -92,6 +106,7 @@ function renderCountdown(campaign) {
             campaign.startTime
         );
 
+        // BEFORE START TIME
         if (!result.expired) {
 
             box.innerHTML = `
@@ -105,21 +120,31 @@ function renderCountdown(campaign) {
                 </div>
             `;
 
-        } else {
+        }
+
+        // AFTER START TIME — 24 HOUR TRACKING
+        else {
 
             const trackingEnd =
-                new Date(target.getTime() + 24 * 60 * 60 * 1000);
+                new Date(
+                    target.getTime()
+                    + 24 * 60 * 60 * 1000
+                );
 
             const remaining =
                 trackingEnd - new Date();
 
+
+            // STILL WITHIN 24 HOURS
             if (remaining > 0) {
 
                 const totalSeconds =
                     Math.floor(remaining / 1000);
 
                 const days =
-                    Math.floor(totalSeconds / 86400);
+                    Math.floor(
+                        totalSeconds / 86400
+                    );
 
                 const hours =
                     Math.floor(
@@ -134,6 +159,7 @@ function renderCountdown(campaign) {
                 const seconds =
                     totalSeconds % 60;
 
+
                 box.innerHTML = `
                     <h3>24hours tracking time:</h3>
 
@@ -145,7 +171,10 @@ function renderCountdown(campaign) {
                     </div>
                 `;
 
-            } else {
+            }
+
+            // AFTER 24 HOURS
+            else {
 
                 box.innerHTML = `
                     <h3>24hours tracking time:</h3>
@@ -165,16 +194,31 @@ function renderCountdown(campaign) {
         }
     }
 
+
     update();
 
     setInterval(update, 1000);
+}
 
-    function renderEPActionBox(campaign) {
 
-    const box = document.getElementById("action-box");
+// ========================================
+// BOX 3 — STREAMING + TRENDING
+// ========================================
 
-    const target = new Date(campaign.startTime);
+function renderEPActionBox(campaign) {
+
+    const box =
+        document.getElementById("action-box");
+
+    const target =
+        new Date(campaign.startTime);
+
     const now = new Date();
+
+
+    // ====================================
+    // BEFORE START TIME
+    // ====================================
 
     if (now < target) {
 
@@ -209,7 +253,14 @@ function renderCountdown(campaign) {
             </div>
         `;
 
-    } else {
+    }
+
+
+    // ====================================
+    // AFTER START TIME
+    // ====================================
+
+    else {
 
         let streamingHTML = `
             <h3>STREAMING</h3>
@@ -280,15 +331,24 @@ function renderCountdown(campaign) {
             </div>
         `;
     }
-        function renderEPTracking(campaign) {
+}
+
+
+// ========================================
+// TRACKING DASHBOARD
+// ========================================
+
+function renderEPTracking(campaign) {
 
     const box =
         document.getElementById("tracking-box");
+
 
     box.innerHTML = `
         <h3>TRENDING</h3>
 
         <h4>HOW TO TREND</h4>
+
 
         <p>
             <a
@@ -331,14 +391,17 @@ function renderCountdown(campaign) {
 
         </div>
     `;
+}
 
-            renderReleaseBox(currentCampaign);
+
+// ========================================
+// START APP
+// ========================================
+
+renderReleaseBox(currentCampaign);
 
 renderCountdown(currentCampaign);
 
 renderEPActionBox(currentCampaign);
 
 renderEPTracking(currentCampaign);
-}
-}
-}
