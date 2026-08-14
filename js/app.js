@@ -274,18 +274,20 @@ function renderEPActionBox(campaign) {
         campaign.parts.forEach(part => {
 
             streamingHTML += `
-                <a
-                    href="${part.url}"
-                    target="_blank"
-                    class="action-button"
-                >
-                    ${part.name}
+    <a
+        href="${part.url}"
+        target="_blank"
+        class="action-button"
+    >
+        <span class="button-title">
+            ${part.name}
+        </span>
 
-                    <span class="small-note">
-                        ${part.instruction}
-                    </span>
-                </a>
-            `;
+        <span class="button-note">
+            ${part.instruction}
+        </span>
+    </a>
+`;
 
         });
 
@@ -304,9 +306,9 @@ function renderEPActionBox(campaign) {
 
                     <h3>TRENDING</h3>
 
-                    <div class="info-button">
-                        Hashtag: ${campaign.hashtag}
-                    </div>
+                    <div class="hashtag-box">
+    Hashtag: ${campaign.hashtag}
+</div>
 
 
                     <a
