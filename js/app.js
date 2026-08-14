@@ -63,4 +63,19 @@ function renderReleaseBox(campaign) {
 }
 
 
+function renderLocalTime(target) {
+
+    const localTime = target.toLocaleString(
+        undefined,
+        {
+            dateStyle: "short",
+            timeStyle: "short"
+        }
+    );
+
+    document.getElementById("local-time")
+        .textContent = localTime;
+}
+
+
 renderReleaseBox(currentCampaign);
