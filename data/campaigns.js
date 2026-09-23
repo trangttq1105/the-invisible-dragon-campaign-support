@@ -69,7 +69,7 @@ const campaigns = {
 
         title: "The Invisible Dragon Special EP",
 
-        startTime: "2026-08-14T16:00:00+07:00",
+        startTime: "2026-09-30T16:00:00+07:00",
 
         hashtag: "#TheInvisibleDragon",
 
