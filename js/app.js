@@ -1,4 +1,4 @@
-const currentCampaign = campaigns.specialEP;
+const currentCampaign = campaigns.trailer;
 
 
 // ========================================
